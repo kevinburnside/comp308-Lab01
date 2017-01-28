@@ -1,9 +1,16 @@
 //index
-let express = require('express')
-let app = express()
+let express = require('express');
+let app = express();
+let path = require('path');
 
-app.get('/hi', function(req, res){
-    res.send('Test')
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname + '/index.html'));
+})
+app.get('/about', function(req, res){
+    res.sendFile(path.join(__dirname + '/about.html'));
+})
+app.get('/contact', function(req, res){
+    res.sendFile(path.join(__dirname + '/contact.html'));
 })
 
 app.listen(3000, function(){
